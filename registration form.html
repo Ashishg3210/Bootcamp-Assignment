@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Example</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      background-color: green;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 5px;
+      position: relative;
+      top:35px;
+      
+
+      
+    }
+
+    input[type="button"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+    #gender{
+        position: relative;
+        top:18px;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Personal Information</h2>
+
+<form id="myForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob" name="dob" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+
+  <label for="city">City:</label>
+  <select id="city" name="city">
+    <option value="Delhi">Delhi</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Kashmir">Kashmir</option>
+  </select>
+
+  <label for="hobby">Hobby:</label>
+  <input type="checkbox" id="Cricket" name="hobby" value="Cricket"> Cricket
+  <input type="checkbox" id="Basketball" name="hobby" value="Basketball"> Basketball
+  <input type="checkbox" id="Football" name="hobby" value="Football"> Football
+
+  <label id="gender">Gender:</label>
+<input type="radio" id="male" name="gender" value="male"> Male
+  <input type="radio" id="female" name="gender" value="female"> Female
+
+  <br><br>
+
+  <input type="button" value="Submit" onclick="displayValues()">
+</form>
+
+<script>
+  function displayValues() {
+    var form = document.getElementById("myForm");
+    var formData = new FormData(form);
+    var formValues = {};
+    
+    formData.forEach(function(value, key){
+      formValues[key] = value;
+    });
+
+    // Display the values (you can customize this part based on your needs)
+    alert("Form values:\n" + JSON.stringify(formValues, null, 2));
+  }
+</script>
+
+</body>
+</html>
